@@ -29,6 +29,14 @@ ul li:hover {
     background: rgb(233, 233, 233);
 }
 
+p {
+    margin: 0;
+}
+
+.info {
+    color: gray;
+}
+
 .tarefas-container {
     padding: 30px;
     margin-bottom: 98px;

@@ -8,16 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class MainPageComponent implements OnInit {
 
     TAREFA_MIN_LENGTH: Number = 10;
-    tarefas: String[] = [];
-    newTarefa: String = '';
+    tarefas: String[];
+    newTarefa: String;
 
     constructor() { 
-        this.tarefas = ['Curso de angular com loiane', 'Almoço', 'Ler a bíblia e orar', 'Portfolio com Vue'];
+        this.tarefas = [];
         this.newTarefa = '';
     }
 
-    ngOnInit(): void {
-    }
+    ngOnInit(): void {}
 
     addTarefa(key?: String){
         if ((!key || key === "Enter") && this.newTarefa && this.newTarefa !== '' && this.newTarefa.length > this.TAREFA_MIN_LENGTH ) {
