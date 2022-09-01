@@ -1,0 +1,36 @@
+main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header,
+footer {
+    padding: 30px 15px;
+}
+
+footer {
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    padding: 5px 15px;
+}
+
+ul li:hover {
+    background: rgb(233, 233, 233);
+}
+
+.tarefas-container {
+    padding: 30px;
+    margin-bottom: 98px;
+    overflow: auto;
+}
