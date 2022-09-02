@@ -1,4 +1,5 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~mdi/css/materialdesignicons.min.css';
 
 * {
     padding: 0;

@@ -29,6 +29,10 @@ ul li:hover {
     background: rgb(233, 233, 233);
 }
 
+ul li:hover .delete-btn{
+    display: block;
+}
+
 p {
     margin: 0;
 }
@@ -41,4 +45,22 @@ p {
     padding: 30px;
     margin-bottom: 98px;
     overflow: auto;
+}
+
+.tarefa-horario {
+    background: rgb(239, 239, 239);
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+.tarefa-text {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.delete-btn {
+    display: none;
+    background: none;
+    border: none;
+    max-height: 5px;
 }
