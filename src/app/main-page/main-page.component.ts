@@ -12,7 +12,7 @@ interface Tarefa {
     styleUrls: ['./main-page.component.css']
 })
 export class MainPageComponent implements OnInit {
-    
+
     TAREFA_MIN_LENGTH: Number = 10;
     EMPTY_TAREFA: Tarefa = {
         tarefa: '',
@@ -27,14 +27,25 @@ export class MainPageComponent implements OnInit {
     newTarefa: Tarefa;
 
     constructor() { 
-        this.tarefas = [];
+        this.tarefas = [
+            {
+                tarefa: 'Fazer exame admissional',
+                horario: '10:00',
+                isRealizada: false
+            },
+            {
+                tarefa: 'Abrir conta no santander',
+                horario: '08:00',
+                isRealizada: true
+            }
+        ];
         this.newTarefa = { ...this.EMPTY_TAREFA };
     }
 
     ngOnInit(): void {}
 
-    addTarefa(key?: String){
-        if ((!key || key === "Enter") && this.tarefaHasHorario(this.newTarefa.horario) && this.tarefaHasText(this.newTarefa.tarefa) ) {
+    addTarefa(){
+        if (this.tarefaHasHorario(this.newTarefa.horario) && this.tarefaHasText(this.newTarefa.tarefa) ) {
             this.tarefas.push(this.newTarefa);
             this.newTarefa = { ...this.EMPTY_TAREFA };
             this.newTarefaElement.nativeElement.focus();
@@ -44,10 +55,4 @@ export class MainPageComponent implements OnInit {
     tarefaHasText(tarefa: String) { return tarefa && tarefa !== '' && tarefa.length > this.TAREFA_MIN_LENGTH; }
 
     tarefaHasHorario(horario: String) { return horario && horario.length >= 4; }
-
-    teste(item: Tarefa) {
-        console.log(item);
-        console.log(this.newTarefaElement);
-    }
-
 }

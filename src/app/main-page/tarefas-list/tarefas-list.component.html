@@ -1,0 +1,17 @@
+<section class="tarefas-container container border">
+    <div class="row">
+        <div class="col-md-12">
+            <ul>
+                <li *ngFor="let item of tarefas | orderby: 'horario'; let itemIndex = index">
+                    <div class="d-flex align-items-center">
+                        <input class="tarefa-check" type="checkbox" [(ngModel)]="item.isRealizada">
+                        <span (click)="teste(item, itemIndex)" class="tarefa-horario">{{ item.horario }}</span>
+                        <span class="tarefa-text" [ngClass]="{checked: item.isRealizada}">{{ item.tarefa }}</span>
+                        <button (click)="deleteTarefa(itemIndex)" class="delete-btn" title="Excluir"><span class="mdi mdi-close"></span></button>
+                    </div>
+                </li>
+            </ul>
+            <p class="info text-center" *ngIf="tarefas.length === 0">Nenhuma tarefa a ser listada</p>
+        </div>
+    </div>
+</section>
