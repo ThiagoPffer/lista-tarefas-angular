@@ -23,10 +23,4 @@ export class TarefasListComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    deleteTarefa(index: number) { this.tarefas.splice(index, 1); }
-
-    teste(item: Tarefa, index: Number) {
-        console.log(item, index);
-    }
-
 }

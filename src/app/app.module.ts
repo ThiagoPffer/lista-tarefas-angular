@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { FormsModule } from '@angular/forms';
 import { TarefasListComponent } from './main-page/tarefas-list/tarefas-list.component';
+import { TarefaItemComponent } from './main-page/tarefas-list/tarefa-item/tarefa-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     TarefasListComponent,
-    OrderByPipe
+    OrderByPipe,
+    TarefaItemComponent
   ],
   imports: [
     BrowserModule,

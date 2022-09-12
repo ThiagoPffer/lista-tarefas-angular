@@ -6,3 +6,9 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+.icon-btn {
+    background: none;
+    border: none;
+    max-height: 24px;
+}

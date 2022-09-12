@@ -37,6 +37,11 @@ export class MainPageComponent implements OnInit {
                 tarefa: 'Abrir conta no santander',
                 horario: '08:00',
                 isRealizada: true
+            },
+            {
+                tarefa: 'Criar componente para itens da lista',
+                horario: '18:00',
+                isRealizada: false
             }
         ];
         this.newTarefa = { ...this.EMPTY_TAREFA };
@@ -52,6 +57,7 @@ export class MainPageComponent implements OnInit {
         }
     }
 
+    // CRIAR SERVIÇO PARA REALIZAR TAIS VERIFICAÇÕES (CÓDIGO DUPLICADO EM TAREFA-ITEM.COMPONENT)
     tarefaHasText(tarefa: String) { return tarefa && tarefa !== '' && tarefa.length > this.TAREFA_MIN_LENGTH; }
 
     tarefaHasHorario(horario: String) { return horario && horario.length >= 4; }

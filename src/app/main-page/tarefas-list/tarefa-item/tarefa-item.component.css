@@ -1,0 +1,79 @@
+li {
+    padding: 5px 15px;
+}
+
+li:hover {
+    background: rgb(233, 233, 233);
+}
+
+li:hover .delete-btn{
+    display: block;
+}
+
+.tarefa-horario {
+    background: rgb(239, 239, 239);
+    padding: 0 10px;
+    border-radius: 4px;
+}
+
+.tarefa-text-container {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.tarefa-text-input-container {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+}
+
+.tarefa-text-input-container input {
+    padding: 0 10px;
+    height: 24px;
+    width: 40%;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 4px;
+    outline: none;
+}
+
+.btn-edit-tarefa {
+    margin: 0 0 0 5px;
+}
+
+.tarefa-text {
+    display: inline-block;
+    transition: .2s;
+}
+
+.tarefa-text:hover {
+    padding: 0 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+}
+
+.tarefa-text:hover .btn-edit-tarefa {
+    display: inline-block;
+}
+
+.tarefa-text-container.checked .tarefa-text {
+    text-decoration: line-through;
+}
+
+.delete-btn,
+.btn-edit-tarefa,
+.btn-cancel-edit,
+.btn-save-edit {
+    display: none;
+}
+
+.btn-cancel-edit.edit,
+.btn-save-edit.edit {
+    display: inline-block;
+}
+
+.tarefa-check {
+    margin: 0 15px 0 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
