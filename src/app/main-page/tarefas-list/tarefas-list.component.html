@@ -2,7 +2,12 @@
     <div class="row">
         <div class="col-md-12">
             <ul>
-                <app-tarefa-item *ngFor="let item of tarefas | orderby: 'horario'; let itemIndex = index" [tarefa]="item"></app-tarefa-item>
+                <app-tarefa-item 
+                    *ngFor="let item of tarefas | orderby: 'horario'; let itemIndex = index" 
+                    [tarefa]="item"
+                    (deleteTask)="onDeleteTask($event)" 
+                >
+                </app-tarefa-item>
             </ul>
             <p class="info text-center" *ngIf="tarefas.length === 0">Nenhuma tarefa a ser listada</p>
         </div>

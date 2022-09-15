@@ -1,11 +1,4 @@
-import { OrderByPipe } from '../../order-by.pipe';
 import { Component, Input, OnInit } from '@angular/core';
-
-interface Tarefa {
-    tarefa: String
-    horario: String
-    isRealizada: Boolean
-}
 
 @Component({
     selector: 'app-tarefas-list',
@@ -23,4 +16,8 @@ export class TarefasListComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    onDeleteTask(tarefaEvent: Tarefa) {
+        let index = this.tarefas.findIndex( tarefa => { return tarefa.id === tarefaEvent.id } );
+        this.tarefas.splice(index, 1);
+    }
 }

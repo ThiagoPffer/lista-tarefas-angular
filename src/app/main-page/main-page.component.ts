@@ -1,10 +1,6 @@
+import { Constants } from '../settings/constants';
+import { TarefaService } from './../services/tarefa.service';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-
-interface Tarefa {
-    tarefa: String
-    horario: String
-    isRealizada: Boolean
-}
 
 @Component({
     selector: 'app-main-page',
@@ -13,12 +9,7 @@ interface Tarefa {
 })
 export class MainPageComponent implements OnInit {
 
-    TAREFA_MIN_LENGTH: Number = 10;
-    EMPTY_TAREFA: Tarefa = {
-        tarefa: '',
-        horario: '',
-        isRealizada: false
-    }
+    tarefaService: TarefaService;
 
     @ViewChild('ipt_tarefa')
     newTarefaElement!: ElementRef<HTMLInputElement>;
@@ -26,39 +17,39 @@ export class MainPageComponent implements OnInit {
     tarefas: Tarefa[];
     newTarefa: Tarefa;
 
-    constructor() { 
+    constructor(_tarefaService: TarefaService) {
+        this.tarefaService = _tarefaService;
         this.tarefas = [
             {
+                id: this.tarefaService.getRandomId(),
                 tarefa: 'Fazer exame admissional',
                 horario: '10:00',
                 isRealizada: false
             },
             {
+                id: this.tarefaService.getRandomId(),
                 tarefa: 'Abrir conta no santander',
                 horario: '08:00',
                 isRealizada: true
             },
             {
+                id: this.tarefaService.getRandomId(),
                 tarefa: 'Criar componente para itens da lista',
                 horario: '18:00',
                 isRealizada: false
             }
         ];
-        this.newTarefa = { ...this.EMPTY_TAREFA };
+        this.newTarefa = { ...Constants.EMPTY_TAREFA };
     }
 
     ngOnInit(): void {}
 
     addTarefa(){
-        if (this.tarefaHasHorario(this.newTarefa.horario) && this.tarefaHasText(this.newTarefa.tarefa) ) {
+        if (this.tarefaService.tarefaHasHorario(this.newTarefa.horario) && this.tarefaService.tarefaHasText(this.newTarefa.tarefa) ) {
             this.tarefas.push(this.newTarefa);
-            this.newTarefa = { ...this.EMPTY_TAREFA };
+            this.newTarefa = { ...Constants.EMPTY_TAREFA };
             this.newTarefaElement.nativeElement.focus();
         }
     }
 
-    // CRIAR SERVIÇO PARA REALIZAR TAIS VERIFICAÇÕES (CÓDIGO DUPLICADO EM TAREFA-ITEM.COMPONENT)
-    tarefaHasText(tarefa: String) { return tarefa && tarefa !== '' && tarefa.length > this.TAREFA_MIN_LENGTH; }
-
-    tarefaHasHorario(horario: String) { return horario && horario.length >= 4; }
 }

@@ -1,10 +1,6 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-
-interface Tarefa {
-    tarefa: String
-    horario: String
-    isRealizada: Boolean
-}
+import { Constants } from './../../../settings/constants';
+import { TarefaService } from './../../../services/tarefa.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'app-tarefa-item',
@@ -13,17 +9,17 @@ interface Tarefa {
 })
 export class TarefaItemComponent implements OnInit {
 
-    TAREFA_MIN_LENGTH: Number = 10;
+    tarefaService: TarefaService;
+
     @Input() tarefa: Tarefa;
+    @Output() deleteTask = new EventEmitter;
+    
     isEditandoTarefa: Boolean;
     taskDescription: String;
 
-    constructor() {
-        this.tarefa = {
-            tarefa: '',
-            horario: '',
-            isRealizada: false
-        };
+    constructor(_tarefaService: TarefaService) {
+        this.tarefaService = _tarefaService;
+        this.tarefa = { ...Constants.EMPTY_TAREFA };
         this.isEditandoTarefa = false;
         this.taskDescription = '';
     }
@@ -31,12 +27,11 @@ export class TarefaItemComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    deleteTarefa() { 
-        // this.tarefas.splice(index, 1); 
-        console.log('TODO: Emitir eventos para excluir o item');
+    deleteTarefa() {
+        this.deleteTask.emit(this.tarefa);
     }
 
-    toggleEditarTarefa() { 
+    toggleEditarTarefa() {
         this.isEditandoTarefa = !this.isEditandoTarefa;
         if (this.isEditandoTarefa) {
             this.taskDescription = this.tarefa.tarefa;
@@ -44,7 +39,7 @@ export class TarefaItemComponent implements OnInit {
     }
 
     saveEditTask() {
-        if (this.tarefaHasText(this.tarefa.tarefa)) {
+        if (this.tarefaService.tarefaHasText(this.tarefa.tarefa)) {
             this.toggleEditarTarefa();
         }
     }
@@ -53,7 +48,5 @@ export class TarefaItemComponent implements OnInit {
         this.tarefa.tarefa = this.taskDescription;
         this.toggleEditarTarefa();
     }
-    
-    tarefaHasText(tarefa: String) { return tarefa && tarefa !== '' && tarefa.length > this.TAREFA_MIN_LENGTH; }
 
 }

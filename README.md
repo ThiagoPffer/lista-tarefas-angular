@@ -8,7 +8,7 @@ Trata-se de uma simples lista de tarefas, que deverá permitir ao usuário:
 - [x] Adicionar mais tarefas, com descrição e horário;
 - [x] Marcar tarefas como realizada ou não;
 - [x] Editar tarefas;
-- [ ] Excluir tarefas;
+- [x] Excluir tarefas;
 - [ ] Manter os dados persistidos através do localStorage;
 
 Outras funcionalidades que deverão ser implementadas:
