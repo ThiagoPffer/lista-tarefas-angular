@@ -12,10 +12,11 @@ export class TarefaItemComponent implements OnInit {
     tarefaService: TarefaService;
 
     @Input() tarefa: Tarefa;
-    @Output() deleteTask = new EventEmitter;
-    
+    @Output() _deleteTask = new EventEmitter;
+    @Output() _saveTask = new EventEmitter;
+
     isEditandoTarefa: Boolean;
-    taskDescription: String;
+    taskDescription: string;
 
     constructor(_tarefaService: TarefaService) {
         this.tarefaService = _tarefaService;
@@ -28,7 +29,8 @@ export class TarefaItemComponent implements OnInit {
     }
 
     deleteTarefa() {
-        this.deleteTask.emit(this.tarefa);
+        this.tarefaService.deleteTarefa(this.tarefa.id);
+        this._deleteTask.emit();
     }
 
     toggleEditarTarefa() {
@@ -38,9 +40,10 @@ export class TarefaItemComponent implements OnInit {
         }
     }
 
-    saveEditTask() {
+    saveTask() {
         if (this.tarefaService.tarefaHasText(this.tarefa.tarefa)) {
             this.toggleEditarTarefa();
+            this._saveTask.emit();
         }
     }
 
@@ -49,4 +52,8 @@ export class TarefaItemComponent implements OnInit {
         this.toggleEditarTarefa();
     }
 
+    setChecked() {
+        this.tarefa.isRealizada = !this.tarefa.isRealizada;
+        this._saveTask.emit();
+    }
 }

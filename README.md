@@ -9,10 +9,11 @@ Trata-se de uma simples lista de tarefas, que deverá permitir ao usuário:
 - [x] Marcar tarefas como realizada ou não;
 - [x] Editar tarefas;
 - [x] Excluir tarefas;
-- [ ] Manter os dados persistidos através do localStorage;
+- [x] Manter os dados persistidos através do localStorage;
 
 Outras funcionalidades que deverão ser implementadas:
 
+- [ ] Exibir mensagens de erro;
 - [ ] Integrar aplicação com Firebase;
 - [ ] Permitir criar uma lista de tarefas para cada dia;
 

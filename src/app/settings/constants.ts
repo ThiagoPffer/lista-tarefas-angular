@@ -6,4 +6,5 @@ export class Constants {
         horario: '',
         isRealizada: false
     }
+    public static LOCAL_STORAGE_TAREFAS_KEY: string = 'tarefas'
 }

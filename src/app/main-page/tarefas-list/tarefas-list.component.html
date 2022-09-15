@@ -5,7 +5,8 @@
                 <app-tarefa-item 
                     *ngFor="let item of tarefas | orderby: 'horario'; let itemIndex = index" 
                     [tarefa]="item"
-                    (deleteTask)="onDeleteTask($event)" 
+                    (_deleteTask)="onDeleteTask()"
+                    (_saveTask)="onSaveEditTask()"
                 >
                 </app-tarefa-item>
             </ul>

@@ -1,6 +1,6 @@
 <li>
     <div class="d-flex align-items-center">
-        <input class="tarefa-check" type="checkbox" [(ngModel)]="tarefa.isRealizada">
+        <input class="tarefa-check" type="checkbox" [(ngModel)]="tarefa.isRealizada" (click)="setChecked()">
         <span class="tarefa-horario">{{ tarefa.horario }}</span>
         <div class="tarefa-text-container" [ngClass]="{checked: tarefa.isRealizada}">
             <span class="tarefa-text" *ngIf="!isEditandoTarefa" (click)="toggleEditarTarefa()" title="Clique para editar">
@@ -10,7 +10,7 @@
             <div class="tarefa-text-input-container">
                 <input *ngIf="isEditandoTarefa" type="text" [(ngModel)]="tarefa.tarefa">
                 <button [ngClass]="{edit: isEditandoTarefa}" (click)="cancelEditTask()" class="btn-cancel-edit icon-btn" title="Cancelar edição" ><span class="mdi mdi-close"></span></button>
-                <button [ngClass]="{edit: isEditandoTarefa}" (click)="saveEditTask()" class="btn-save-edit icon-btn" title="Salvar edição"><span class="mdi mdi-check"></span></button>
+                <button [ngClass]="{edit: isEditandoTarefa}" (click)="saveTask()" class="btn-save-edit icon-btn" title="Salvar edição"><span class="mdi mdi-check"></span></button>
             </div>
         </div>
         <div class="delete-btn-container">

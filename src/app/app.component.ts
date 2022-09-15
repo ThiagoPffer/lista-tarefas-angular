@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 declare global {
     interface Tarefa {
-        id: String
-        tarefa: String
-        horario: String
+        id: string
+        tarefa: string
+        horario: string
         isRealizada: Boolean
     }
 }

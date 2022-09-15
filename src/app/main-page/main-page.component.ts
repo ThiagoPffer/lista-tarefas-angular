@@ -19,35 +19,18 @@ export class MainPageComponent implements OnInit {
 
     constructor(_tarefaService: TarefaService) {
         this.tarefaService = _tarefaService;
-        this.tarefas = [
-            {
-                id: this.tarefaService.getRandomId(),
-                tarefa: 'Fazer exame admissional',
-                horario: '10:00',
-                isRealizada: false
-            },
-            {
-                id: this.tarefaService.getRandomId(),
-                tarefa: 'Abrir conta no santander',
-                horario: '08:00',
-                isRealizada: true
-            },
-            {
-                id: this.tarefaService.getRandomId(),
-                tarefa: 'Criar componente para itens da lista',
-                horario: '18:00',
-                isRealizada: false
-            }
-        ];
+        this.tarefas = this.tarefaService.getTarefas();
         this.newTarefa = { ...Constants.EMPTY_TAREFA };
     }
 
-    ngOnInit(): void {}
+    ngOnInit(): void {
+    }
 
     addTarefa(){
         if (this.tarefaService.tarefaHasHorario(this.newTarefa.horario) && this.tarefaService.tarefaHasText(this.newTarefa.tarefa) ) {
             this.newTarefa.id = this.tarefaService.getRandomId();
             this.tarefas.push(this.newTarefa);
+            this.tarefaService.saveTarefas(this.tarefas);
             this.newTarefa = { ...Constants.EMPTY_TAREFA };
             this.newTarefaElement.nativeElement.focus();
         }
