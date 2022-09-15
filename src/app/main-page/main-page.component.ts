@@ -46,10 +46,10 @@ export class MainPageComponent implements OnInit {
 
     addTarefa(){
         if (this.tarefaService.tarefaHasHorario(this.newTarefa.horario) && this.tarefaService.tarefaHasText(this.newTarefa.tarefa) ) {
+            this.newTarefa.id = this.tarefaService.getRandomId();
             this.tarefas.push(this.newTarefa);
             this.newTarefa = { ...Constants.EMPTY_TAREFA };
             this.newTarefaElement.nativeElement.focus();
         }
     }
-
 }
