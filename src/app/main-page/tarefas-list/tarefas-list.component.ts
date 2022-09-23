@@ -21,6 +21,7 @@ export class TarefasListComponent implements OnInit {
     }
 
     onDeleteTask() { this.tarefas = this.tarefaService.getTarefas(); }
+
     onSaveEditTask() { 
         this.tarefaService.saveTarefas(this.tarefas);
         this.tarefas = this.tarefaService.getTarefas();

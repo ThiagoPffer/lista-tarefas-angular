@@ -23,6 +23,4 @@ Outras rotinas que deverão ser implementadas:
 
 TODO: 
 
-- [ ] Create a service in order to verify task descriptions
-- [ ] Create a progress bar based on the checked tasks
-- [ ] Code using english language
+- Create a progress bar based on the checked tasks

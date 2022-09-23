@@ -8,6 +8,7 @@ import { MainPageComponent } from './main-page/main-page.component';
 import { FormsModule } from '@angular/forms';
 import { TarefasListComponent } from './main-page/tarefas-list/tarefas-list.component';
 import { TarefaItemComponent } from './main-page/tarefas-list/tarefa-item/tarefa-item.component';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TarefaItemComponent } from './main-page/tarefas-list/tarefa-item/tarefa
     MainPageComponent,
     TarefasListComponent,
     OrderByPipe,
-    TarefaItemComponent
+    TarefaItemComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
