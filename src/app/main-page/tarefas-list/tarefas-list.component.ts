@@ -1,6 +1,5 @@
 import { TarefaService } from './../../services/tarefa.service';
-import { Component, Input, OnInit } from '@angular/core';
-import { ThisReceiver } from '@angular/compiler';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
     selector: 'app-tarefas-list',
@@ -9,21 +8,25 @@ import { ThisReceiver } from '@angular/compiler';
 })
 export class TarefasListComponent implements OnInit {
 
-    tarefaService: TarefaService;
     @Input() tarefas: Tarefa[];
+    @Output() onTaskChanged = new EventEmitter();
 
-    constructor(_tarefaService: TarefaService) {
-        this.tarefaService = _tarefaService;
+    constructor(
+        private tarefaService: TarefaService
+    ) {
         this.tarefas = [];
     }
 
-    ngOnInit(): void {
+    ngOnInit(): void {}
+
+    onDeleteTask() { 
+        this.tarefas = this.tarefaService.getTarefas();
+        this.onTaskChanged.emit(this.tarefas);
     }
 
-    onDeleteTask() { this.tarefas = this.tarefaService.getTarefas(); }
-
-    onSaveEditTask() { 
+    onSaveEditTask() {
         this.tarefaService.saveTarefas(this.tarefas);
         this.tarefas = this.tarefaService.getTarefas();
+        this.onTaskChanged.emit(this.tarefas);
     }
 }

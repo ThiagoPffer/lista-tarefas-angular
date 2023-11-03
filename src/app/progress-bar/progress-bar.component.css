@@ -9,4 +9,5 @@
     background-color: green;
     height: 100%;
     border-radius: inherit;
+    transition: .2s;
 }
