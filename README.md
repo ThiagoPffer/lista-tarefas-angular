@@ -14,13 +14,9 @@ Trata-se de uma simples lista de tarefas, que deverá permitir ao usuário:
 Outras funcionalidades que deverão ser implementadas:
 
 - [ ] Exibir mensagens de erro;
-- [ ] Integrar aplicação com Firebase;
+- [ ] Integrar aplicação com Supabase;
 - [ ] Permitir criar uma lista de tarefas para cada dia;
 
 Outras rotinas que deverão ser implementadas:
 
 - [ ] Elenco de prioridades;
-
-TODO: 
-
-- Create a progress bar based on the checked tasks
